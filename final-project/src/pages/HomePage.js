@@ -22,40 +22,14 @@ function HomePage(props) {
           <section className={s.carousel}>
             <MainCarouselView />
           </section>
-          <section className={s.movie}>
-            <div className={s.movieNav}>
-              <button
-                onClick={() => this.handleMovie('movies')}
-                className={classNames({ [s.active]: movie === 'movies' })}
-              >
-                현재 상영작
-              </button>
-              <button
-                onClick={() => this.handleMovie('movies/pre')}
-                className={classNames({ [s.active]: movie === 'movies/pre' })}
-              >
-                개봉 예정작
-              </button>
-            </div>
-            {movie === 'movies' ? (
-              <Link to="/movies" className={s.more}>
-                + MORE
-              </Link>
-            ) : (
-              <Link to="/movies/?movie=pre" className={s.more}>
-                + MORE
-              </Link>
-            )}
-            <MovieList page="home" movie={movie} key={movie} />
-          </section>
           <section className={s.trailer}>
-            <span className={s.subTitle}>예고편</span>
+            <span className={s.subTitle}>Trailer</span>
             <div className={s.trailerVideo}>
-              <VideoView trailer="XTZko22Ze3o" />
+              <VideoView trailer="EVWdzVtSh1I" />
             </div>
           </section>
           <section className={s.event}>
-            <span className={s.subTitle}>이벤트</span>
+            <span className={s.subTitle}>Event</span>
             <div className={s.eventImages}>
               <div className={s.firstEvent} />
               <div className={s.secondEvent} />

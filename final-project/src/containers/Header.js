@@ -15,12 +15,6 @@ function Header(props) {
 
     return (
         <div className={classNames(s.menuBar, { [s.active]: active })}>
-        <img
-          src={menu}
-          alt="모바일메뉴버튼"
-          className={s.menuButton}
-          onClick={() => this.handleMenuActive()}
-        />
         <Link to="/" className={s.logo}>
           Home
         </Link>
@@ -28,7 +22,7 @@ function Header(props) {
           {lastName !== '' && firstName !== '' && (
             <Link to="/myCGV/info" className={s.username}>
               {lastName}
-              {firstName}님
+              {firstName}My Account
             </Link>
           )}
           <img
