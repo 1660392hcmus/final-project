@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { makeStyles, Grid, Typography } from '@material-ui/core';
 import ResponsiveMovieCard from '../components/ResponsiveMovieCard/ResponsiveMovieCard';
 import { getMovies } from '../../../store/actions';
+import { movies as localMovie } from '../../../fake-data';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -64,7 +65,7 @@ function MovieCategoryPage(props) {
 }
 
 const mapStateToProps = ({ movieState }, ownProps) => ({
-  movies: movieState[ownProps.match.params.category] || []
+  movies: movieState[ownProps.match.params.category] || localMovie
 });
 
 const mapDispatchToProps = { getMovies };

@@ -10,7 +10,7 @@ import {
 import MovieCarousel from '../components/MovieCarousel/MovieCarousel';
 import MovieBanner from '../components/MovieBanner/MovieBanner';
 import styles from './styles';
-
+import { movies as localMovie } from '../../../fake-data';
 class HomePage extends Component {
   componentDidMount() {
     const {
@@ -51,19 +51,19 @@ class HomePage extends Component {
         <MovieCarousel
           carouselClass={classes.carousel}
           title="Suggested for you"
-          movies={suggested}
+          movies={localMovie}
         />
         <MovieCarousel
           carouselClass={classes.carousel}
           title="Now Showing"
           to="/movie/category/nowShowing"
-          movies={nowShowing}
+          movies={localMovie}
         />
         <MovieCarousel
           carouselClass={classes.carousel}
           title="Coming Soon"
           to="/movie/category/comingSoon"
-          movies={comingSoon}
+          movies={localMovie}
         />
         {false && (
           <Grid container style={{ height: 500 }}>
@@ -80,18 +80,18 @@ HomePage.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
+  latestMovies: PropTypes.array.isRequired,
   movies: PropTypes.array.isRequired,
-  latestMovies: PropTypes.array.isRequired
 };
 
 const mapStateToProps = ({ movieState, showtimeState, authState }) => ({
-  movies: movieState.movies,
-  randomMovie: movieState.randomMovie,
-  latestMovies: movieState.latestMovies,
-  comingSoon: movieState.comingSoon,
-  nowShowing: movieState.nowShowing,
+  movies: movieState.movies || localMovie,
+  randomMovie: movieState.randomMovie || localMovie[0],
+  latestMovies: movieState.latestMovies || localMovie,
+  comingSoon: movieState.comingSoon || localMovie,
+  nowShowing: movieState.nowShowing || localMovie,
   showtimes: showtimeState.showtimes,
-  suggested: movieState.suggested,
+  suggested: movieState.suggested || localMovie,
   user: authState.user
 });
 

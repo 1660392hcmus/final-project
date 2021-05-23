@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { makeStyles, Grid, Typography, Container } from '@material-ui/core';
 import { getCinemas } from '../../../store/actions';
 import CinemaCard from '../components/CinemaCard/CinemaCard';
+import { movies as localMovie } from '../../../fake-data';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -48,7 +49,7 @@ function CinemasPage(props) {
 }
 
 const mapStateToProps = ({ cinemaState }) => ({
-  cinemas: cinemaState.cinemas
+  cinemas: cinemaState.cinemas || localMovie,
 });
 
 const mapDispatchToProps = { getCinemas };

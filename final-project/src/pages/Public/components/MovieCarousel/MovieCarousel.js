@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 import MovieCardSimple from '../MovieCardSimple/MovieCardSimple';
 import styles from './styles';
+import { movies as localMovie } from '../../../../fake-data';
 
 const useStyles = makeStyles(styles);
 
@@ -15,8 +16,14 @@ function NextArrow(props) {
   const { currentSlide, slideCount, onClick } = props;
   const classes = useStyles({ currentSlide, slideCount });
   return (
-    <div className={classnames(classes.arrow, 'nextArrow')} onClick={onClick}>
-      <ArrowForwardIos color="inherit" fontSize="large" />
+    <div
+      className={classnames(classes.arrow, 'nextArrow')}
+      onClick={onClick}
+    >
+      <ArrowForwardIos
+        color="inherit"
+        fontSize="large"
+      />
     </div>
   );
 }
@@ -25,13 +32,20 @@ function PrevArrow(props) {
   const { currentSlide, onClick } = props;
   const classes = useStyles({ currentSlide });
   return (
-    <div className={classnames(classes.arrow, 'prevArrow')} onClick={onClick}>
-      <ArrowBackIos color="inherit" fontSize="large" />
+    <div
+      className={classnames(classes.arrow, 'prevArrow')}
+      onClick={onClick}
+    >
+      <ArrowBackIos
+        color="inherit"
+        fontSize="large"
+      />
     </div>
   );
 }
 
-function MovieCarousel({ carouselClass, movies = [], title, to = null }) {
+function MovieCarousel({ carouselClass, movies = localMovie, title, to = null }) {
+  console.log("🚀 ~ file: MovieCarousel.js ~ line 48 ~ MovieCarousel ~ movies", movies)
   const classes = useStyles();
   const settings = {
     centerMode: true,
@@ -66,21 +80,37 @@ function MovieCarousel({ carouselClass, movies = [], title, to = null }) {
   return (
     <div className={carouselClass}>
       <div className={classes.container}>
-        <Typography className={classes.h2} variant="h2" color="inherit">
+        <Typography
+          className={classes.h2}
+          color="inherit"
+          variant="h2"
+        >
           {title}
         </Typography>
         {to==null? null
-           :
-          <Link to={to} style={{ textDecoration: 'none' }}>
-          <Button className={classes.button} color="primary">
+          :
+          <Link
+            style={{ textDecoration: 'none' }}
+            to={to}
+          >
+            <Button
+              className={classes.button}
+              color="primary"
+            >
             Explore All
-          </Button>
-        </Link>
-      }
+            </Button>
+          </Link>
+        }
       </div>
-      <Slider {...settings} className={classes.slider}>
+      <Slider
+        {...settings}
+        className={classes.slider}
+      >
         {movies.map(movie => (
-          <MovieCardSimple key={movie._id} movie={movie} />
+          <MovieCardSimple
+            key={movie._id}
+            movie={movie}
+          />
         ))}
       </Slider>
     </div>

@@ -35,23 +35,42 @@ class Navbar extends Component {
           className={classnames({
             [classes.navbar]: true,
             [classes.navbarColor]: scrollPos > 30
-          })}>
-          <Link className={classes.logoLink} to="/">
-            <Typography className={classes.logo} variant="h2">
+          })}
+        >
+          <Link
+            className={classes.logoLink}
+            to="/"
+          >
+            <Typography
+              className={classes.logo}
+              variant="h2"
+            >
               Cinema +
             </Typography>
           </Link>
           <div className={classes.navLinks}>
-            <Link className={classes.navLink} to="/">
+            <Link
+              className={classes.navLink}
+              to="/"
+            >
               Home
             </Link>
-            <Link className={classes.navLink} to="/movie/category/nowShowing">
+            <Link
+              className={classes.navLink}
+              to="/movie/category/nowShowing"
+            >
               Now Showing
             </Link>
-            <Link className={classes.navLink} to="/movie/category/comingSoon">
+            <Link
+              className={classes.navLink}
+              to="/movie/category/comingSoon"
+            >
               Coming Soon
             </Link>
-            <Link className={classes.navLink} to="/cinemas">
+            <Link
+              className={classes.navLink}
+              to="/cinemas"
+            >
               Cinemas
             </Link>
           </div>
@@ -67,7 +86,8 @@ class Navbar extends Component {
                         user.role !== 'guest'
                           ? '/admin/dashboard'
                           : '/mydashboard'
-                      }>
+                      }
+                    >
                       Dashboard
                     </Link>
                   </ListItem>
@@ -75,13 +95,20 @@ class Navbar extends Component {
 
                 {isAuth ? (
                   <ListItem>
-                    <Link className={classes.navLink} onClick={logout} to="/">
+                    <Link
+                      className={classes.navLink}
+                      onClick={logout}
+                      to="/"
+                    >
                       Logout
                     </Link>
                   </ListItem>
                 ) : (
                   <ListItem>
-                    <Link className={classes.navLink} to="/login">
+                    <Link
+                      className={classes.navLink}
+                      to="/login"
+                    >
                       Login
                     </Link>
                   </ListItem>
@@ -93,7 +120,8 @@ class Navbar extends Component {
           <div className={classes.navMobile}>
             <div
               className={classes.navIcon}
-              onClick={() => this.setState({ showMenu: !this.state.showMenu })}>
+              onClick={() => this.setState({ showMenu: !this.state.showMenu })}
+            >
               <div
                 className={classnames(
                   classes.navIconLine,
@@ -114,33 +142,43 @@ class Navbar extends Component {
           className={classnames({
             [classes.navActive]: showMenu,
             [classes.nav]: true
-          })}>
+          })}
+        >
           <div className={classes.navContent}>
             <div className={classes.currentPageShadow}>Movies</div>
             <ul
               className={classes.innerNav}
-              onClick={() => this.setState({ showMenu: !this.state.showMenu })}>
+              onClick={() => this.setState({ showMenu: !this.state.showMenu })}
+            >
               <li className={classes.innerNavListItem}>
-                <Link className={classes.innerNavLink} to="/">
+                <Link
+                  className={classes.innerNavLink}
+                  to="/"
+                >
                   Home
                 </Link>
               </li>
               <li className={classes.innerNavListItem}>
                 <Link
                   className={classes.innerNavLink}
-                  to="/movie/category/nowShowing">
+                  to="/movie/category/nowShowing"
+                >
                   Now Showing
                 </Link>
               </li>
               <li className={classes.innerNavListItem}>
                 <Link
                   className={classes.innerNavLink}
-                  to="/movie/category/comingSoon">
+                  to="/movie/category/comingSoon"
+                >
                   Coming Soon
                 </Link>
               </li>
               <li className={classes.innerNavListItem}>
-                <Link className={classes.innerNavLink} to="/cinemas">
+                <Link
+                  className={classes.innerNavLink}
+                  to="/cinemas"
+                >
                   Cinemas
                 </Link>
               </li>

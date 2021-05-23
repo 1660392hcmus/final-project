@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import MovieBanner from '../components/MovieBanner/MovieBanner';
 import { getMovie, onSelectMovie } from '../../../store/actions';
+import { movies as localMovie } from '../../../fake-data';
 
 class MoviePage extends Component {
   componentDidMount() {
@@ -26,7 +27,7 @@ MoviePage.propTypes = {
 };
 
 const mapStateToProps = ({ movieState }) => ({
-  movie: movieState.selectedMovie
+  movie: movieState.selectedMovie || localMovie[0]
 });
 
 const mapDispatchToProps = { getMovie, onSelectMovie };
