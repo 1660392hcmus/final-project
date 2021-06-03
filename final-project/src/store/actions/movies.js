@@ -1,5 +1,6 @@
 import { GET_MOVIES, SELECT_MOVIE,GET_SUGGESTIONS } from '../types';
 import { setAlert } from './alert';
+import { movies as fakeData } from '../../fake-data'; 
 
 export const uploadMovieImage = (id, image) => async dispatch => {
   try {
@@ -24,15 +25,17 @@ export const uploadMovieImage = (id, image) => async dispatch => {
 
 export const getMovies = () => async dispatch => {
   try {
-    const url = '/movies';
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    });
-    const movies = await response.json();
-    if (response.ok) {
-      dispatch({ type: GET_MOVIES, payload: movies });
-    }
+    // const url = '/movies';
+    // const response = await fetch(url, {
+    //   method: 'GET',
+    //   headers: { 'Content-Type': 'application/json' }
+    // });
+    // const movies = await response.json();
+    // if (response.ok) {
+    //   dispatch({ type: GET_MOVIES, payload: movies });
+    // }
+    const movies = fakeData;
+    dispatch({ type: GET_MOVIES, payload: movies });
   } catch (error) {
     dispatch(setAlert(error.message, 'error', 5000));
   }

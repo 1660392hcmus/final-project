@@ -51,19 +51,19 @@ class HomePage extends Component {
         <MovieCarousel
           carouselClass={classes.carousel}
           title="Suggested for you"
-          movies={localMovie}
+          movies={suggested}
         />
         <MovieCarousel
           carouselClass={classes.carousel}
           title="Now Showing"
           to="/movie/category/nowShowing"
-          movies={localMovie}
+          movies={nowShowing}
         />
         <MovieCarousel
           carouselClass={classes.carousel}
           title="Coming Soon"
           to="/movie/category/comingSoon"
-          movies={localMovie}
+          movies={comingSoon}
         />
         {false && (
           <Grid container style={{ height: 500 }}>
@@ -85,13 +85,13 @@ HomePage.propTypes = {
 };
 
 const mapStateToProps = ({ movieState, showtimeState, authState }) => ({
-  movies: movieState.movies || localMovie,
-  randomMovie: movieState.randomMovie || localMovie[0],
-  latestMovies: movieState.latestMovies || localMovie,
-  comingSoon: movieState.comingSoon || localMovie,
-  nowShowing: movieState.nowShowing || localMovie,
+  movies: movieState.movies,
+  randomMovie: movieState.randomMovie,
+  latestMovies: movieState.latestMovies,
+  comingSoon: movieState.comingSoon,
+  nowShowing: movieState.nowShowing,
   showtimes: showtimeState.showtimes,
-  suggested: movieState.suggested || localMovie,
+  suggested: movieState.suggested,
   user: authState.user
 });
 

@@ -45,7 +45,6 @@ function PrevArrow(props) {
 }
 
 function MovieCarousel({ carouselClass, movies = localMovie, title, to = null }) {
-  console.log("🚀 ~ file: MovieCarousel.js ~ line 48 ~ MovieCarousel ~ movies", movies)
   const classes = useStyles();
   const settings = {
     centerMode: true,
