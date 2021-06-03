@@ -53,7 +53,7 @@
   },
   "scripts": {
     "clean": "rm -rf node_modules/ && npm cache clean",
-    "start": "react-scripts start",
+    "start": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
